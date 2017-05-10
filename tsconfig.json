@@ -1,0 +1,23 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es2015",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "sourceMap": true,
+        "removeComments": false,
+        "jsx": "react",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es2017",
+            "dom"
+        ]
+    },
+    "files": [
+        "src/ts/app.tsx"
+    ]
+}

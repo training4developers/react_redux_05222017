@@ -1,0 +1,92 @@
+{
+  "name": "react_redux_05222017",
+  "version": "1.0.0",
+  "description": "React + Redux + TypeScript Class Files",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run web\" \"npm run rest\"",
+    "clean": "rimraf dist",
+    "web": "webpack-dev-server",
+    "rest": "json-server --watch --port 3010 db.json",
+    "webpack:w": "webpack --watch",
+    "webpack": "webpack"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "webpack",
+    "typescript"
+  ],
+  "author": "Eric W. Greene",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.0",
+    "concurrently": "^3.1.0",
+    "enzyme": "^2.7.1",
+    "eslint": "^3.12.1",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "jest": "^20.0.0",
+    "json-server": "^0.10.0",
+    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4",
+    "rimraf": "^2.5.4",
+    "sass-lint": "^1.10.2",
+    "tslint": "^5.2.0",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "@types/core-js": "^0.9.41",
+    "@types/react": "^15.0.24",
+    "@types/react-dom": "^15.5.0",
+    "@types/react-redux": "^4.4.40",
+    "@types/react-router-redux": "^5.0.1",
+    "autoprefixer": "^7.0.1",
+    "bootstrap": "4.0.0-alpha.6",
+    "bootstrap-loader": "2.0.0-beta.20",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.1",
+    "empty": "^0.10.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.28.0",
+    "key-mirror": "^1.0.1",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.0",
+    "null-loader": "^0.1.1",
+    "postcss": "^6.0.1",
+    "postcss-import": "^9.1.0",
+    "postcss-loader": "^2.0.3",
+    "raw-loader": "^0.5.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "resolve-url-loader": "^2.0.2",
+    "sass-loader": "^6.0.4",
+    "style-loader": "^0.17.0",
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.1.5",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.5.1",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devServer": {
+    "contentBase": "dist",
+    "historyApiFallback": true,
+    "port": 3000,
+    "proxy": {
+      "/widgets": {
+        "target": "http://localhost:3010/widgets"
+      },
+      "/cars": {
+        "target": "http://localhost:3010/cars"
+      }
+    }
+  }
+}
