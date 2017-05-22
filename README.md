@@ -8,7 +8,7 @@ Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.c
 
 Class:
 
-- Monday - Wednesday: 9:00am to 5:00pm
+- Monday - Tuesday: 9:00am to 5:00pm
 
 Breaks:
 
