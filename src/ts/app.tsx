@@ -5,15 +5,22 @@ import 'bootstrap-loader';
 
 import { ColorTool } from './components/color-tool';
 
-class MyApp extends React.Component<{}, {}> {
+interface MyAppProps {
+    colors: string[];
+}
+
+class MyApp extends React.Component<MyAppProps, {}> {
 
     public render() {
 
-        // return React.createElement('div', null, 'Color Tool');
-
-        return <ColorTool />;
+        return <ColorTool colors={this.props.colors} />;
     }
 }
 
-ReactDOM.render(<MyApp />, document.querySelector('main'));
+
+const colorList = [
+    'red', 'white', 'yellow', 'blue', 'gold', 'green',
+];
+
+ReactDOM.render(<MyApp colors={colorList} />, document.querySelector('main'));
 
