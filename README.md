@@ -8,30 +8,27 @@ Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.c
 
 Class:
 
-- Monday - Wednesday: 9:30am to 5:30pm
+- Monday - Wednesday: 9:00am to 5:00pm
 
 Breaks:
 
-- Morning: 10:40am to 10:50am
+- Morning: 10:25am to 10:35am
 - Lunch: Noon to 1pm
-- Afternoon #1: 2:25pm to 2:35pm
-- Afternoon #2: 4pm to 4:10pm
+- Afternoon #1: 2:15pm to 2:25pm
+- Afternoon #2: 3:40pm to 3:50pm
 
 ## Course Outline
 
-JavaScript topics will be included as needed into the React & Redux content
+JavaScript/TypeScript topics will be included as needed into the React & Redux content
 
-- Day 1 - React: Overview of React, JSX, Props + Validation, State, Immutable Programming
-- Day 2 - React: Component Composition, Forms, Special Attributes
-- Day 3 - React: Pure Component, Stateless Functions, Life Cycle Functions
-- Day 4 - Redux: Reducers, Stores, Thunk, React
-- Day 5 - React and Redux Unit Testing, Remaining Topics from Previous Days
+- Day 1 - React: Overview of React, JSX, Props + Validation, State, Immutable Programming, Stateless Functions
+- Day 2 - React: Component Composition, Pure Components, Life Cycle Functions, Redux, React Unit Testing
 
 ## Links
 
 ### Instructor's Resources
 
-- [Accelebrate, Inc.](https://www.accelebrate.com/)
+- [Wintellect](https://www.wintellect.com/)
 - [Eric's Blog](http://t4d.io/)
 - [WintellectNOW](https://www.wintellectnow.com/Home/Instructor?instructorId=EricGreene) - Special Offer Code: GREENE-2016
 - [Microsoft Virtual Academy](https://mva.microsoft.com/search/SearchResults.aspx#!q=Eric%20Greene&lang=1033)
