@@ -10,6 +10,7 @@ interface ColorToolProps {
 
 interface ColorToolState extends FormState {
     newColor?: string;
+    colors?: Color[];
 }
 
 export class ColorTool extends React.Component<ColorToolProps, ColorToolState> {
@@ -19,6 +20,7 @@ export class ColorTool extends React.Component<ColorToolProps, ColorToolState> {
 
         this.state = {
             newColor: '',
+            colors: this.props.colors.concat(),
         };
 
         // this.onChange = this.onChange.bind(this);
@@ -30,13 +32,14 @@ export class ColorTool extends React.Component<ColorToolProps, ColorToolState> {
             <header>
                 <h1>Color Tool</h1>
             </header>
-            <ul>{this.props.colors.map( (color) => <li>{color.name}</li> )}</ul>
+            <ul>{this.state.colors.map( (color) => <li>{color.name}</li> )}</ul>
             <form>
                 <div>
                     <label htmlFor="new-color-input">New Color</label>
                     <input type="text" id="new-color-input" name="newColor"
                         value={this.state.newColor} onChange={this.onChange} />
                 </div>
+                <button type="button" onClick={this.onClick}>Add Color</button>
             </form>
         </div>;
     }
@@ -45,5 +48,20 @@ export class ColorTool extends React.Component<ColorToolProps, ColorToolState> {
         this.setState({
             [ e.target.name ]: e.target.value,
         });
+    }
+
+    private onClick = () => {
+
+        const color = {
+            id: this.state.colors.reduce( (maxId, nextItem) =>
+                Math.max(maxId, nextItem.id), 0) + 1,
+            name: this.state.newColor,
+        };
+
+        this.setState({
+            colors: this.state.colors.concat(color),
+            newColor: '',
+        });
+
     }
 }
