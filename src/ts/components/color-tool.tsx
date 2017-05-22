@@ -4,8 +4,15 @@ export class ColorTool extends React.Component<{}, {}> {
 
     public render() {
 
-        // return React.createElement('div', null, 'Color Tool');
+        const colors = [
+            'red', 'white', 'yellow', 'blue', 'gold', 'green',
+        ];
 
-        return <div>Color Tool</div>;
+        return <div>
+            <header>
+                <h1>Color Tool</h1>
+            </header>
+            <ul>{colors.map( (color) => <li>{color}</li> )}</ul>
+        </div>;
     }
 }

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import 'bootstrap-loader';
+
 import { ColorTool } from './components/color-tool';
 
 class MyApp extends React.Component<{}, {}> {
