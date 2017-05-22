@@ -9,7 +9,12 @@
         "no-console": [ false ],
         "max-classes-per-file": [
             true, 50
-        ]
+        ],
+		"quotemark": [true, "single", "jsx-double"],
+		"object-literal-sort-keys": false,
+		"ordered-imports": [
+			false
+		]
 	},
 	"jsRules": {
 		"curly": true
