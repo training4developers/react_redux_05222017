@@ -1,16 +1,17 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import 'bootstrap-loader';
-import '../scss/styles.scss';
+import { ColorTool } from './components/color-tool';
 
-class HelloWorld extends React.Component<{}, {}> {
+class MyApp extends React.Component<{}, {}> {
 
     public render() {
 
-        return <h1>Hello World!</h1>;
+        // return React.createElement('div', null, 'Color Tool');
+
+        return <ColorTool />;
     }
 }
 
-ReactDOM.render(<HelloWorld />, document.querySelector('main'));
+ReactDOM.render(<MyApp />, document.querySelector('main'));
 
