@@ -7,6 +7,7 @@ import { FormState } from '../models/form-state';
 import { ToolHeader } from './tool-header';
 import { ItemList } from './item-list';
 import { ColorForm } from './color-form';
+import { DecoratedBox } from './decorated-box';
 
 interface ColorToolProps {
     colors: Color[];
@@ -22,8 +23,34 @@ export class ColorTool extends React.Component<ColorToolProps, ColorToolState> {
         super(props);
 
         this.state = {
-            colors: this.props.colors.concat(),
+            colors: [], // this.props.colors.concat(),
         };
+    }
+
+    public componentDidMount() {
+
+        fetch('http://localhost:3010/colors').then( (res) => res.json() ).then( (results) => {
+            this.setState({
+                colors: results,
+            });
+        } );
+
+        // setTimeout(() => {
+
+        //     this.setState({
+        //         colors: this.state.colors.slice(0, 1).concat(this.state.colors.slice(2)),
+        //     });
+
+        // }, 3000);
+
+        // fetch(url, {
+        //    method: 'post',
+        //    headers: {
+        //        'Content-Type': 'application/json'
+        //    },
+        //    body: JSON.stringify(newCar)
+        // }).then( (res) => res.json() ).then();
+
     }
 
     public render() {

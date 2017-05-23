@@ -39,9 +39,22 @@ export class ColorForm extends React.Component<ColorFormProps, ColorFormState> {
     }
 
     private onChange = (e: FormControlEvent) => {
+
+        let value: any;
+
+        switch (e.target.type) {
+            case 'checkbox':
+                value = (e.target as HTMLInputElement).checked;
+            case 'number':
+                value = Number(e.target.value);
+            default:
+                value = e.target.value;
+        }
+
         this.setState({
-            [ e.target.name ]: e.target.value,
+            [ e.target.name ]: value,
         });
+
     }
 
     // private emitColor = () => {
