@@ -35,13 +35,13 @@ export class ColorTool extends React.Component<ColorToolProps, ColorToolState> {
             });
         } );
 
-        // setTimeout(() => {
+        setTimeout(() => {
 
-        //     this.setState({
-        //         colors: this.state.colors.slice(0, 1).concat(this.state.colors.slice(2)),
-        //     });
+            this.setState({
+                colors: this.state.colors.slice(0, 1).concat(this.state.colors.slice(2)),
+            });
 
-        // }, 3000);
+        }, 3000);
 
         // fetch(url, {
         //    method: 'post',

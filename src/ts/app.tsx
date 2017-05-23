@@ -1,33 +1,109 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import 'bootstrap-loader';
+import { createStore, bindActionCreators, Action, Reducer, Dispatch, Unsubscribe } from 'redux';
+import { Provider, connect } from 'react-redux';
 
-import { Color } from './models/color';
-import { ColorTool } from './components/color-tool';
-
-interface MyAppProps {
-    colors: Color[];
+enum ActionTypes {
+    Add, Subtract,
 }
 
-class MyApp extends React.Component<MyAppProps, {}> {
+interface AppState {
+    result: number;
+}
+
+interface CalcAction extends Action {
+    value: number;
+}
+
+const addActionCreator: (value: number) => CalcAction = (value) => ({ type: ActionTypes.Add, value });
+const subtractActionCreator = (value: number) => ({ type: ActionTypes.Subtract, value });
+
+const calcReducer: Reducer<AppState> = (state: AppState = { result: 0 }, action: CalcAction) => {
+
+    switch (action.type) {
+        case ActionTypes.Add:
+            return Object.assign({}, state, { result: state.result + action.value });
+        case ActionTypes.Subtract:
+            return Object.assign({}, state, { result: state.result - action.value });
+        default:
+            return state;
+    }
+};
+
+const store = createStore<AppState>(calcReducer);
+
+interface CalculatorProps {
+    add: (value: number) => CalcAction;
+    subtract: (value: number) => CalcAction;
+    result: number;
+}
+
+const mapStateToProps = (state: AppState) => ({ result: state.result });
+
+const mapDispatchToProps = (dispatch: Dispatch<AppState>) => bindActionCreators({
+    add: addActionCreator,
+    subtract: subtractActionCreator,
+}, dispatch);
+
+// const connect = (mapStateToPropsFn: any, mapDispatchToPropsFn: any) => {
+
+//     return (ComponentToWrap: any) => {
+
+//         return class ContainerComponent extends React.Component<{ store: any }, {}> {
+
+//             private storeUnsubscribe: Unsubscribe;
+//             private dispatchProps: any;
+//             private componentProps: any;
+
+//             public componentWillMount() {
+
+//                 this.dispatchProps = mapDispatchToPropsFn(this.props.store.dispatch);
+//                 this.componentProps = Object.assign({}, this.dispatchProps,
+//                     mapStateToPropsFn(this.props.store.getState()));
+//             }
+
+//             public componentDidMount() {
+
+//                 this.storeUnsubscribe = this.props.store.subscribe(() => {
+//                     this.componentProps = Object.assign({}, this.dispatchProps,
+//                         mapStateToPropsFn(this.props.store.getState()));
+//                     this.forceUpdate();
+//                 });
+//             }
+
+//             public componentWillUnmount() {
+//                 this.storeUnsubscribe();
+//             }
+
+//             public render() {
+//                 return <ComponentToWrap {...this.componentProps} />;
+//             }
+
+//         };
+
+
+//     };
+
+// };
+
+class Calculator extends React.Component<CalculatorProps, {}> {
 
     public render() {
-
-        return <ColorTool colors={this.props.colors} />;
+        let calcInput: HTMLInputElement;
+        return <div>
+            <input type="number" defaultValue="0" ref={ (input) => calcInput = input } />
+            <button onClick={() => this.props.add(Number(calcInput.value))}>Add</button>
+            <button onClick={() => this.props.subtract(Number(calcInput.value))}>Subtract</button>
+            <div>
+                Result: {this.props.result}
+            </div>
+        </div>;
     }
 }
 
+const CalculatorContainer = connect(mapStateToProps, mapDispatchToProps)(Calculator);
 
-const colorList = [
-    { id: 1, name: 'red' },
-    { id: 2, name: 'white' },
-    { id: 3, name: 'yellow' },
-    { id: 4, name: 'blue' },
-    { id: 5, name: 'gold' },
-    { id: 6, name: 'green' },
-];
-
-ReactDOM.render(<MyApp colors={colorList} />, document.querySelector('main'));
-// ReactDOM.render(<CarTool cars={carList} />, document.querySelector('main'));
-
+ReactDOM.render(<Provider store={store}>
+    <CalculatorContainer />
+</Provider>, document.querySelector('main'));

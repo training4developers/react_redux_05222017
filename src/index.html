@@ -11,5 +11,94 @@
 
     <body>
         <main></main>
+        <script>
+
+            // const initialState = 0;
+
+            // const calcReducer = (state, action) => {
+                
+            //     console.log('state', state, 'action', action);
+
+            //     switch(action.type) {
+            //         case 'add':
+            //             return state + action.value;
+            //         case 'subtract':
+            //             return state - action.value;
+            //         default:
+            //             return state;
+            //     }
+
+            // };
+
+            // const createStore = (reducer, initialState) => {
+
+            //     let state = initialState;
+            //     const subscribeFns = [];
+
+            //     return {
+            //         getState: () => state,
+            //         dispatch: (action) => {
+            //             state = reducer(state, action);
+            //             subscribeFns.forEach(cb => cb());
+            //         },
+            //         subscribe: (cb) => {
+            //             subscribeFns.push(cb);
+            //         },
+            //     };
+            // };
+
+            // const store = createStore(calcReducer, initialState);
+
+            // store.subscribe(() => {
+
+            //     console.log('subscribe callback: ' + store.getState());
+
+            // });
+
+            // const addActionCreator = (value) => ({ type: 'add', value });
+            // const subtractActionCreator = (value) => ({ type: 'subtract', value });
+
+            // const bindActionCreators = (actionCreators, dispatch) => {
+
+            //     const actions = {};
+
+            //     Object.keys(actionCreators).forEach(actionName => {
+            //         actions[actionName] = (...params) => {
+            //             dispatch(actionCreators[actionName](...params));
+            //         }
+            //     });
+
+            //     return actions;
+            // };
+
+            // const { add, subtract } = bindActionCreators({
+            //     add: addActionCreator,
+            //     subtract: subtractActionCreator,
+            // }, store.dispatch);
+
+            // add(1,2,3,4,4);
+            // subtract(2);
+            // add(3);
+            // subtract(4);
+            // add(5);
+
+            // var t = 2;
+
+            // var o = {
+            //     t,
+            //     doIt() {
+            //         console.log('hello!');
+            //     },
+            //     set name(value) {
+            //         this._name = value;
+            //     },
+            //     get name() {
+            //         return this._name;
+            //     }
+            // }
+
+            // o.doIt();
+
+        </script>
     </body>
 </html>
